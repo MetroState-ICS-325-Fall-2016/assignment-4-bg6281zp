@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 function show_form($errors = array()) {
     $defaults = array('delivery' => 'yes',
-                      'size'     => 'medium');
+                      'size'     => 'large');
     // Set up the $form object with proper defaults
     $form = new FormHelper($defaults);
 
