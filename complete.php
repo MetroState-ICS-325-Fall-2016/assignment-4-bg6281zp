@@ -10,7 +10,8 @@ require 'FormHelper.php';
 $sweets = array('puff' => 'Sesame Seed Puff',
                 'square' => 'Coconut Milk Gelatin Square',
                 'cake' => 'Brown Sugar Cake',
-                'ricemeat' => 'Sweet Rice and Meat');
+                'ricemeat' => 'Sweet Rice and Meat',
+                'icecream' => 'Ice Cream');
 
 $main_dishes = array('cuke' => 'Braised Sea Cucumber',
                      'stomach' => "Sauteed Pig's Stomach",
@@ -65,7 +66,7 @@ function validate_form( ) {
     } else {
         $input['size'] = '';
     }
-    if (! in_array($input['size'], ['small','medium','large'])) {
+    if (! in_array($input['size'], ['small','medium','large','XLarge'])) {
         $errors[] = 'Please select a size.';
     }
     // sweet is required
