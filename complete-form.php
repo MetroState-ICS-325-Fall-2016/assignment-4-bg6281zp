@@ -11,7 +11,7 @@
     <?php }  ?>
 
     <tr><td>Your Name:</td><td><?= $form->input('text', ['name' => 'name']) ?></td></tr>
-
+    <tr><td>Your E-mail:</td><td><?= $form->input('text', ['email' => 'email']) ?></td></tr>
     <tr><td>Size:</td>
         <td><?= $form->input('radio',['name' => 'size', 'value' => 'small']) ?> Small <br/>
             <?= $form->input('radio',['name' => 'size', 'value' => 'medium']) ?> Medium <br/>
@@ -40,8 +40,11 @@
         If you want your order delivered, put your address here:</td>
         <td><?= $form->textarea(['name' => 'comments']) ?></td></tr>
 
-    <tr><td colspan="2" align="center"><?= $form->input('submit', ['value' => 'Order']) ?>
-    </td></tr>
+    <tr><td colspan="1" align="center"><?= $form->input('submit', ['value' => 'Order']) ?>
+        </td>
+        <td colspan="2" align="center"><?= $form->input('reset', ['value' => 'Reset']) ?>
+        </td>
+    </tr>
 
 </table>
 </form>

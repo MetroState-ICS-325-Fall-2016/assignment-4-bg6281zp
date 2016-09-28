@@ -13,13 +13,13 @@ $sweets = array('puff' => 'Sesame Seed Puff',
                 'ricemeat' => 'Sweet Rice and Meat',
                 'icecream' => 'Ice Cream');
 
-$main_dishes = array('coke' => 'Coke',
+$drinks = array('coke' => 'Coke',
     'dietcoke' => "Diet Coke",
     'sprite' => 'Sprite',
     'milk' => 'Milk',
     'water' => 'Water');
 
-$drinks = array('cuke' => 'Braised Sea Cucumber',
+$main_dishes = array('cuke' => 'Braised Sea Cucumber',
     'stomach' => "Sauteed Pig's Stomach",
     'tripe' => 'Sauteed Tripe with Wine Sauce',
     'taro' => 'Stewed Pork with Taro',
@@ -67,6 +67,19 @@ function validate_form( ) {
     if (! strlen($input['name'])) {
         $errors[] = 'Please enter your name.';
     }
+    // email is required
+    if (isset($_POST['email'])) {
+        $input['text'] = ($_POST['email']);
+    } else {
+        $input['email'] = '';
+    }
+    if (!filter_input_array(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL) === false) {
+        echo('Email is valid');
+    }
+    else {
+        $errors[]='Email is not valid';
+    }
+
     // size is required
     if(isset($_POST['size'])) {
         $input['size'] = trim($_POST['size']);
@@ -143,8 +156,9 @@ function process_form($input) {
     }
     // build up the text of the order message
     $message=<<<_ORDER_
-Thank you for your order, {$input['name']}.
+Thank you for your order, {$input['name']} at {$input['email']}
 You requested the {$input['size']} size of $sweet, $drink, $main_dish_1, and $main_dish_2.
+You would like a {$input['drink']}  to drink.
 You $delivery want delivery.\n
 _ORDER_;
     if (strlen(trim($input['comments']))) {
