@@ -21,6 +21,10 @@
 
     <tr><td>Pick one sweet item:</td>
         <td><?= $form->select($GLOBALS['sweets'], ['name' => 'sweet']) ?></td>
+
+    </tr>
+    <tr><td>Pick one drink item:</td>
+        <td><?= $form->select($GLOBALS['drinks'], ['name' => 'drink']) ?></td>
     </tr>
 
     <tr><td>Pick two main dishes:</td>
